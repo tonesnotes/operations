@@ -1,5 +1,6 @@
 import { invoke } from '@tauri-apps/api/core';
 import React, { useState, useEffect } from 'react';
+import { open } from '@tauri-apps/plugin-shell';
 
 interface ProvenTx {
   provenTxId: number;
@@ -35,6 +36,11 @@ const App: React.FC = () => {
     return <div>{error}</div>;
   }
 
+  const txidOnWoC = (txid: string) => {
+    const url = `https://whatsonchain.com/tx/${txid}`;
+    open(url)
+  }
+
   return (
     <div style={{ padding: '20px' }}>
       <h1>Proven Transactions</h1>
@@ -53,7 +59,13 @@ const App: React.FC = () => {
           {data.map((tx) => (
             <tr key={tx.provenTxId}>
               <td>{tx.provenTxId}</td>
-              <td>{tx.txid}</td>
+              <td onClick={() => txidOnWoC(tx.txid)}
+                style={{
+                  cursor: 'pointer',
+                  color: 'blue',
+                  textDecoration: 'underline',
+                }}
+                >{tx.txid}</td>
               <td>{tx.height}</td>
               <td>{tx.index}</td>
               <td>{tx.blockHash}</td>
