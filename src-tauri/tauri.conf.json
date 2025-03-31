@@ -33,7 +33,7 @@
     ]
   },
   "plugins": {
-    "shell": {
+    "opener": {
     }
   }
 }
