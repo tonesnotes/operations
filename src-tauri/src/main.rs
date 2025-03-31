@@ -34,7 +34,8 @@ struct AppState {
 async fn get_proven_txs(state: State<'_, AppState>) -> Result<Vec<ProvenTx>, String> {
     let rows = sqlx::query_as!(
         ProvenTx,
-        "SELECT provenTxId, txid, height, `index`, merklePath, rawTx, blockHash, merkleRoot, created_at, updated_at FROM proven_txs"
+        "SELECT provenTxId, txid, height, `index`, merklePath, rawTx, blockHash, merkleRoot, created_at, updated_at FROM proven_txs
+        order by provenTxId desc limit 50"
     )
     .fetch_all(&state.db)
     .await

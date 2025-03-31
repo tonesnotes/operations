@@ -1,6 +1,6 @@
 {
   "db_name": "MySQL",
-  "query": "SELECT provenTxId, txid, height, `index`, merklePath, rawTx, blockHash, merkleRoot, created_at, updated_at FROM proven_txs",
+  "query": "SELECT provenTxId, txid, height, `index`, merklePath, rawTx, blockHash, merkleRoot, created_at, updated_at FROM proven_txs\n        order by provenTxId desc limit 50",
   "describe": {
     "columns": [
       {
@@ -120,5 +120,5 @@
       false
     ]
   },
-  "hash": "368d9f015643fdd89c26f99688a77bd85b21003eb3589a042025c9cfd4bdad4e"
+  "hash": "84606ba7f6cdbaa00ecb90e23eaa7e2382e8d57a1b219037ce8e6c5445419c45"
 }
