@@ -55,6 +55,7 @@ async fn main() {
     tauri::Builder::default()
         .manage(AppState { db: db_pool })
         .invoke_handler(tauri::generate_handler![get_proven_txs])
+        .plugin(tauri_plugin_opener::init())
         .run(tauri::generate_context!())
         .expect("Error while running Tauri application");
 }

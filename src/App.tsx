@@ -1,6 +1,6 @@
 import { invoke } from '@tauri-apps/api/core';
 import React, { useState, useEffect } from 'react';
-import { open } from '@tauri-apps/plugin-shell';
+import { openUrl } from '@tauri-apps/plugin-opener';
 
 interface ProvenTx {
   provenTxId: number;
@@ -40,7 +40,7 @@ const App: React.FC = () => {
     console.log(`clicked ${txid}`)
     const url = `https://whatsonchain.com` // /tx/${txid}`;
     console.log(`url ${url}`)
-    open(url)
+    openUrl(url)
   }
 
   return (
