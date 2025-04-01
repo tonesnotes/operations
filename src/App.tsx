@@ -38,7 +38,7 @@ const App: React.FC = () => {
 
   const txidOnWoC = (txid: string) => {
     console.log(`clicked ${txid}`)
-    const url = `https://whatsonchain.com` // /tx/${txid}`;
+    const url = `https://whatsonchain.com/tx/${txid}`;
     console.log(`url ${url}`)
     openUrl(url)
   }
